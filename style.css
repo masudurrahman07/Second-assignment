@@ -130,10 +130,6 @@ i{
 }
 
  .card-container{
-    /* margin-top: 60px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px; */
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
@@ -192,16 +188,21 @@ margin-bottom: 5px;
 
    .plant-lover-right-side{
         position: relative;
-         max-width: 50%;
+         max-width: 100%;
    }
+
+   .plant-lover-right-side img { 
+      width: 100%; 
+      height: auto; 
+   } 
 
    #trusted-badge{
     background: transparent;
-    width: 286px;
-    height: 286px;
+    width: 50%;
+    height: auto;
     position: absolute;
-    margin-left: -185px;
-    margin-top: -100px;
+    margin-left: -95px;
+    margin-top: -60px;
    }
 
    .plant-lover-ul{
@@ -276,11 +277,11 @@ margin-bottom: 5px;
     flex: 2;
    }
 
-   .design-card{
+   .design-card,
+   .design-card2{
     position: relative;
     background-size: cover;
     background-position: center;
-    height: 150px;
     border-radius: 12px;
     overflow: hidden;
     display: flex;
@@ -288,21 +289,28 @@ margin-bottom: 5px;
     align-items: center;
    }
 
-   .design-card2{
-    height: 320px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 12px;
+   .design-card::before,
+   .design-card2::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)); 
+    z-index: 1;
    }
 
+  .design-card2{
+    height: 320px;
+   }
+
+   .design-card{
+    height: 150px;
+   }
    .overlay-text{
     color: #ffffff;
     text-align: center;
-    background: rgba(0, 0, 0, 0.3);
     padding: 20px;
-    border-radius: 8px;
-   
+    position: relative;
+    z-index: 2;
    }
 
    .overlay-text h3 {
@@ -332,9 +340,6 @@ margin-bottom: 5px;
    align-items: center;
 }
 
-.join-us-content{
-   position: relative;
-}
 
 .join-us-content h1{
    color: rgb(255, 255, 255);
@@ -344,21 +349,27 @@ margin-bottom: 5px;
   text-align: end;
 }
 
-.join-us-content input{
-    width: 644px;
+.input-group{
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    max-width: 830px;
+}
+
+.input-group input{
     height: 50px;
     padding: 15px;
+    flex: 1;
    
 }
 
-.join-us-content button{
+.input-group button{
   width: 186px;
   height: 49px;
   color: #ffffff;
   background: rgb(233, 90, 8);
   border: none;
-  position: absolute;
-  margin-left: -2px;
+  cursor: pointer;
 }
 
 /* Footer Styles */
@@ -388,47 +399,14 @@ margin-top: 10px;
 }
 
 .footer-img img{
-    margin-left: 20px;
+   margin-right: 20px;
 }
 
 
 
 
 
-   
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@media screen  and (max-width: 576px) {
+   @media screen  and (max-width: 576px) {
     
     /* navbar section */
     .nav-items {
@@ -488,11 +466,7 @@ margin-top: 10px;
     width: calc(50% - 20px); 
   } 
 
-     /* .card-container{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }  */
+     
 
    
     /* plant-lover section */
@@ -505,8 +479,8 @@ margin-top: 10px;
         display: none;
     }
 
-    .plant-lover-right-side img{
-        margin: 10px;
+    .plant-lover-right-side{
+       padding: 0 15px; 
     }
 
     .plant-lover-left-side{
@@ -544,4 +518,44 @@ margin-top: 10px;
         height: 150px;
     } 
 
-  } 
+    /* join the colorful bunch styles */
+    .join-us{
+        padding: 60px 20px;
+        height: auto;
+    }
+
+    .join-us-content h1{
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    .input-group{
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .input-group input{
+        flex: 1;
+        width: auto;
+    }
+
+    .input-group button{
+        width: 120px;
+    }
+
+
+    /* Footer related styles */
+
+    .site-footer{
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 60px;
+        padding: 0 20px;
+    }
+
+    .footer-img{
+         margin-top: 10px; 
+         margin-left: 5px;
+    }
+
+     }
